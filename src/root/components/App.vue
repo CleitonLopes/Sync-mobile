@@ -1,27 +1,37 @@
 <script>
 
-export default {
+	import CpTab from './tab.vue'
 
-  name: 'app',
+	export default {
 
-  data () {
+		name: 'app',
 
-  	return {
+		components: {
 
-  	}
+			CpTab
 
-  }
+		},
 
-}
+		data () {
+
+			return {
+
+			}
+
+		}
+
+	}
 
 </script>
 
 <template>
 
-  <div id="app">
+	<div id="app">
+
+		<cp-tab />
 
 		<router-view></router-view>
 
-  </div>
+	</div>
 
 </template>

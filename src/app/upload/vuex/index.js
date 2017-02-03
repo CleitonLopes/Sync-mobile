@@ -1,10 +1,10 @@
 import state from './state.js'
 
-import * as actions from './actions.js'
+import actions from './actions.js'
 
 import mutations from './mutations.js'
 
-import * as getters from './getters.js'
+import getters from './getters.js'
 
 export default ({
 
