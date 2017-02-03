@@ -1,0 +1,19 @@
+import Vue from 'vue'
+
+import App from './root/components/App.vue'
+
+import router from './router'
+
+import store from './vuex'
+
+new Vue({
+
+router,
+
+store,
+
+el: '#app',
+
+render: h => h(App)
+
+})
