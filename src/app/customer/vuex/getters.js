@@ -5,7 +5,7 @@ export const getCustomers = function(customers) {
 	return customers
 }
 
-export const selected = function(selectedCustomer) {
+export const selectedCustomer = function(selectedCustomer) {
 
 	return selectedCustomer
 }

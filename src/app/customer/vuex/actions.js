@@ -25,7 +25,7 @@ export default {
 
 	selectedCustomer(store, data) {
 
-		store.commit('SET_CUSTOMERS', data)
+		store.commit('SELECTED_CUSTOMERS', data)
 
 	}
 }

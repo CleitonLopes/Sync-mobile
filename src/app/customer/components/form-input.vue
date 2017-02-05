@@ -21,6 +21,8 @@ export default {
 
 		},
 
+		value: '',
+
 		elClass: String,
 
 
@@ -43,7 +45,7 @@ export default {
 
 			<div :class="elClass">
 
-				<input type="text" class="form-control">
+				<input type="text" class="form-control" v-model="value">
 
 			</div>
 

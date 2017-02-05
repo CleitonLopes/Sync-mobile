@@ -61,11 +61,6 @@
 				listCustomers: getters => {
 
 					return getters.customer.customers
-				},
-
-				selected: getters => {
-
-					return getters.customer.selectedCustomer
 				}
 
 			})

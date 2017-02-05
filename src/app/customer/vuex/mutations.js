@@ -4,5 +4,10 @@ export default {
 
 		store.customers = data
 
+	},
+
+	'SELECTED_CUSTOMERS' (store, data) {
+
+		store.selectedCustomer = data
 	}
 }
