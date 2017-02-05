@@ -2,6 +2,8 @@
 
 	export default {
 
+		name: 'Tab'
+
 
 	}
 

@@ -1,20 +1,31 @@
 import http from '../../../http.js'
 
-export const listCustomers = (context) => {
+export default {
 
-	return http.get('http://www.bredasweb.com.br:8080/syncmobile/api/cliente')
 
-	.then(response => response.data)
+	getCustomers(store) {
 
-	.then(data => {
+		return http.get('https://uinames.com/api/?ext')
 
-		context.commit('setCustomers', data.Data)
-	})
+		.then(response => response.data)
 
-	.catch( function(error) {
+		.then(data => {
 
-		console.log(error)
+			store.commit('GET_CUSTOMERS', data)
+		})
 
-	})
+		.catch( function(error) {
 
+			console.log(error)
+
+		})
+
+	},
+
+
+	selectedCustomer(store, data) {
+
+		store.commit('SET_CUSTOMERS', data)
+
+	}
 }

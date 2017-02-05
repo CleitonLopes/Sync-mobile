@@ -1,7 +1,11 @@
 
 
-export const getCustomers = function(customer) {
+export const getCustomers = function(customers) {
 
-	return customer
+	return customers
 }
 
+export const selected = function(selectedCustomer) {
+
+	return selectedCustomer
+}

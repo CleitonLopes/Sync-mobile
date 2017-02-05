@@ -1,6 +1,6 @@
 export default {
 
-	customer: []
+	customers: {},
 
-
+	selectedCustomer: {}
 }

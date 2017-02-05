@@ -15,6 +15,17 @@ export default {
 
 		CpUploadForm
 
+	},
+
+
+	methods: {
+
+		eventSetUpload(item) {
+
+			return item
+
+		}
+
 	}
 
 
@@ -38,13 +49,13 @@ export default {
 
 		<div class="tab-content">
 
-			<cp-table title1="Código" title2="Razão" title3="Fantasia" title4="CPF/CNPJ" title5="Gerar Versão"/>
+			<cp-table title1="Código" title2="Razão" title3="Fantasia" title4="CPF/CNPJ" title5="Gerar Versão" v-on:EVENT-SET-UPLOAD="eventSetUpload"/>
 
 			<hr class="my-4">
 
 		</div>
 
-		<cp-upload-form />
+		<cp-upload-form :list="eventSetUpload"/>
 
 	</div>
 

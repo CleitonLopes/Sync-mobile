@@ -50,28 +50,31 @@
 
 		methods: {
 
-			...mapActions(['listCustomers']),
-
-			setCustomer (item) {
-
-				console.log(item)
-			}
+			...mapActions(['getCustomers', 'selectedCustomer'])
 
 		},
 
 		computed: {
 
-			getCustomers () {
+			...mapState({
 
-				return this.$store.getters.getCustomers.customer
+				listCustomers: getters => {
 
-			}
+					return getters.customer.customers
+				},
+
+				selected: getters => {
+
+					return getters.customer.selectedCustomer
+				}
+
+			})
 
 		},
 
 		mounted () {
 
-			this.listCustomers()
+			this.getCustomers()
 
 		}
 
@@ -99,17 +102,26 @@
 
 			<tbody>
 
-				<tr v-for="(item, index) in getCustomers">
+				<!-- <tr v-for="(item, index) in getCustomers">
 					<td>{{ item.Id }}</td>
 					<td>{{ item.RazaoSocial }}</td>
 					<td>{{ item.NomeFantasia }}</td>
 					<td>{{ item.CpfCnpj }}</td>
 					<td class="text-center"><a @click="setCustomer(item)"><i class="glyphicon glyphicon-cloud-upload"></i></a></td>
+				</tr> -->
+
+				<tr>
+					<td>{{ listCustomers.phone }}</td>
+					<td>{{ listCustomers.name }}</td>
+					<td>{{ listCustomers.gender }}</td>
+					<td>{{ listCustomers.email }}</td>
+					<td class="text-center"><a @click="selectedCustomer(listCustomers)"><i class="glyphicon glyphicon-cloud-upload"></i></a></td>
 				</tr>
 
 		</tbody>
 
 	</table>
+
 
 </div>
 

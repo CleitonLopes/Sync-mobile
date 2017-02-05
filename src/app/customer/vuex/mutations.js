@@ -1,8 +1,8 @@
 export default {
 
-	setCustomers (state, customer) {
+	'GET_CUSTOMERS' (store, data) {
 
-		state.customer = customer
+		store.customers = data
 
 	}
 }
