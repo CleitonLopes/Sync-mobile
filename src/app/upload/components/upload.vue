@@ -47,7 +47,7 @@ export default {
 
 		</div>
 
-		<div class="tab-content">
+		<!-- <div class="tab-content">
 
 			<cp-table title1="Código" title2="Razão" title3="Fantasia" title4="CPF/CNPJ" title5="Gerar Versão" v-on:EVENT-SET-UPLOAD="eventSetUpload"/>
 
@@ -55,7 +55,7 @@ export default {
 
 		</div>
 
-		<cp-upload-form :list="eventSetUpload"/>
+		<cp-upload-form :list="eventSetUpload"/> -->
 
 	</div>
 
