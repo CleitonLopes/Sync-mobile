@@ -6,10 +6,6 @@ import router from './router'
 
 import store from './vuex'
 
-// import './assets/js/nav.js'
-
-//import './assets/js/nav-toggle.js'
-
 
 new Vue({
 

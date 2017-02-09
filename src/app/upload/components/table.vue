@@ -51,6 +51,10 @@
 
 			return {
 
+				configs: {
+
+					orderBy: 'Id'
+				}
 			}
 		},
 
@@ -69,7 +73,12 @@
 					return getters.customer.customers
 				}
 
-			})
+			}),
+
+			list () {
+
+				return _.orderBy(this.listCustomers, this.configs.orderBy)
+			}
 
 		},
 
@@ -107,7 +116,7 @@
 
 				<tbody>
 
-					<tr v-for="item in listCustomers">
+					<tr v-for="item in list ">
 						<td>{{ item.Id }}</td>
 						<td>{{ item.RazaoSocial }}</td>
 						<td>{{ item.NomeFantasia }}</td>

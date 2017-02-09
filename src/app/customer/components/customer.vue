@@ -4,14 +4,6 @@
 
 	import CpForm from './Form/form.vue'
 
-	// import CpFormInput from './form-input.vue'
-
-	// import CpFormInputRadio from './form-input-radio.vue'
-
-	// import CpFormInputSelect from './form-input-select.vue'
-
-	// import CpFormInputBasic from './form-input-basic.vue'
-
 	export default {
 
 		name: 'Customer',

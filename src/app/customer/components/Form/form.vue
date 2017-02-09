@@ -34,7 +34,7 @@ export default {
 
 			return this.customer.razaosocial != '' && this.customer.fantasia != '' &&
 					this.customer.situacao != '' && this.customer.fisicajuridica != '' &&
-					this.customer.cpfcnpj != '' && this.customer.cpfcnpj.length < 14 &&
+					this.customer.cpfcnpj != '' &&
 					this.customer.cep != '' && this.customer.logradouro != '' &&
 					this.endereco != '' && this.customer.numero != '' &&
 					this.numero != '' && this.customer.bairro != ''
@@ -82,11 +82,31 @@ export default {
 						</div>
 					</div>
 
+					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+						<label  class="tituloForm">Tipo</label>
+
+
+						<div class="boxInput">
+
+							<select class="form-control" v-model="customer.fisicajuridica">
+								<option value="F">Física</option>
+								<option value="J">Jurídica</option>
+							</select>
+
+						</div>
+					</div>
+
 					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
 						<label  class="tituloForm">CPF/CNPJ</label>
-						<div class="boxInput">
-							<input type="text" v-model="customer.cpfcnpj" class="form-control">
+
+						<div v-if="customer.fisicajuridica == 'F'" class="boxInput">
+							<input type="text" v-model="customer.cpfcnpj" class="form-control" maxlength="11">
 						</div>
+
+						<div v-else class="boxInput">
+							<input type="text" v-model="customer.cpfcnpj" class="form-control" maxlength="14">
+						</div>
+
 					</div>
 
 					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-2">
@@ -109,20 +129,6 @@ export default {
 						</div>
 					</div>
 
-					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-						<label  class="tituloForm">Tipo</label>
-
-
-						<div class="boxInput">
-
-							<select class="form-control" v-model="customer.fisicajuridica">
-								<option value="F">Física</option>
-								<option value="J">Jurídica</option>
-							</select>
-
-						</div>
-					</div>
-
 					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
 						<label class="tituloForm">CEP</label>
 						<div class="boxInput">
@@ -130,7 +136,7 @@ export default {
 						</div>
 					</div>
 
-					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 						<label  class="tituloForm">Logradouro</label>
 						<div class="boxInput">
 							<input type="text" v-model="customer.logradouro" class="form-control">

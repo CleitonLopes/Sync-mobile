@@ -1,7 +1,5 @@
 <script>
 
-	//import CpTab from './tab.vue'
-
 	import CpHeader from './header.vue'
 
 	import CpMenu from './menu.vue'

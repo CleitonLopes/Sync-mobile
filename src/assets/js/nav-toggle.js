@@ -42,45 +42,49 @@ window.onload = function() {
 
     theToggle.onclick = function() {
 
-       toggleClass(this, 'on');
+        toggleClass(this, 'on');
 
-       return false;
+        return false;
 
-   }
+    }
+}
 
 
-   document.getElementById('menu').onclick = function() {
+window.onload = function() {
+
+    document.getElementById('menu').onclick = function() {
 
      removeClass(theToggle, 'on');
 
-    }
+ }
+}
 
 
- boxConfig.onclick = function() {
 
-    toggleClass(document.getElementById('box-config'), 'active2');
+window.onload = function() {
 
-    return false;
+    boxConfig.onclick = function() {
+
+        toggleClass(document.getElementById('box-config'), 'active2');
+
+        return false;
 
     }
 
 }
 
 
-
-
-
-    window.onresize = function(event) {
+window.onresize = function(event) {
     voltaConfig();
-    };
+};
 
-    function voltaConfig() {
-        if (document.body.clientWidth < 700) {
-               addClass(document.getElementById('box-config'), 'active2');
-            } else {
-                removeClass(theToggle, 'on');
-            };
-    }
+function voltaConfig() {
+    if (document.body.clientWidth < 700) {
+     addClass(document.getElementById('box-config'), 'active2');
+ } else {
+    removeClass(theToggle, 'on');
+};
+}
 
 
 

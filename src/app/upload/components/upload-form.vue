@@ -85,6 +85,10 @@
 
 				self.loading = true;
 
+				self.message.success = false
+
+				self.message.error = false
+
 				self.uploadFile(self.file)
 
 				.then(function (response) {
@@ -139,15 +143,13 @@
 			</div>
 		</div>
 
-		
-
-		<div v-show="message.success">
+		<div v-show="message.success" id="message">
 
 			<cp-message-success />
 
 		</div>
 
-		<div v-show="message.error">
+		<div v-show="message.error" id="message">
 
 			<cp-message-error />
 
