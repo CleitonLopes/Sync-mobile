@@ -2,13 +2,15 @@
 
    import CpCustomer from '../../app/customer/components/customer.vue'
 
+   import CpUpload from '../../app/upload/components/upload.vue'
+
 	export default {
 
 		name: 'Menu',
 
 		components: {
 
-			CpCustomer
+			CpCustomer, CpUpload
 		}
 
 	}
@@ -36,7 +38,7 @@
 
 					<router-link :to="{ name: 'upload.main' }" tag="li">
 
-						<a> Gerar Versçao </a>
+						<a> Gerar Versão </a>
 
 					</router-link>
 
@@ -64,7 +66,7 @@
 
 					<router-link :to="{ name: 'upload.main' }" tag="li" id="b">
 
-						<a> Gerar Versçao </a>
+						<a> Gerar Versão </a>
 
 					</router-link>
 
@@ -74,7 +76,9 @@
 
 			</nav>
 
-			<cp-customer />
+			<router-view></router-view>
+
+		</div>
 
 	</div>
 

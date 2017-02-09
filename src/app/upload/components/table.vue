@@ -38,7 +38,13 @@
 
 				type:String,
 				required: true
+			},
+			title6: {
+
+				type:String,
+				required: true
 			}
+
 		},
 
 		data () {
@@ -79,45 +85,43 @@
 
 <template>
 
-	<div class="container">
 
-		<table class="table table-bordered table-hover">
+	<div class="content-container">
 
-			<thead class="thead-default">
+		<div class="content-table">
 
-				<tr>
-					<th>{{ title1 }}</th>
-					<th>{{ title2 }}</th>
-					<th>{{ title3 }}</th>
-					<th>{{ title4 }}</th>
-					<th class="text-center">{{ title5 }}</th>
-				</tr>
+			<table class="table table-bordered table-hover texto-table">
 
-			</thead>
+				<thead class="thead-default">
 
-			<tbody>
+					<tr>
+						<th>{{ title1 }}</th>
+						<th>{{ title2 }}</th>
+						<th>{{ title3 }}</th>
+						<th>{{ title4 }}</th>
+						<th>{{ title5 }}</th>
+						<th class="text-center">{{ title6 }}</th>
+					</tr>
 
-				<!-- <tr v-for="(item, index) in getCustomers">
-					<td>{{ item.Id }}</td>
-					<td>{{ item.RazaoSocial }}</td>
-					<td>{{ item.NomeFantasia }}</td>
-					<td>{{ item.CpfCnpj }}</td>
-					<td class="text-center"><a @click="setCustomer(item)"><i class="glyphicon glyphicon-cloud-upload"></i></a></td>
-				</tr> -->
+				</thead>
 
-				<tr>
-					<td>{{ listCustomers.phone }}</td>
-					<td>{{ listCustomers.name }}</td>
-					<td>{{ listCustomers.gender }}</td>
-					<td>{{ listCustomers.email }}</td>
-					<td class="text-center"><a @click="selectedCustomer(listCustomers)"><i class="glyphicon glyphicon-cloud-upload"></i></a></td>
-				</tr>
+				<tbody>
 
-		</tbody>
+					<tr v-for="item in listCustomers">
+						<td>{{ item.Id }}</td>
+						<td>{{ item.RazaoSocial }}</td>
+						<td>{{ item.NomeFantasia }}</td>
+						<td>{{ item.CpfCnpj }}</td>
+						<td>{{ item.UltimaVersao }}</td>
+						<td><a @click="selectedCustomer(item)"><img class="upload" src="src/assets/img/upload.svg"></a></td>
+					</tr>
 
-	</table>
+				</tbody>
 
+			</table>
 
-</div>
+		</div>
+
+	</div>
 
 </template>

@@ -9,5 +9,10 @@ export default {
 	'SELECTED_CUSTOMERS' (store, data) {
 
 		store.selectedCustomer = data
+	},
+
+	'CLEAR_CUSTOMERS_SELECTED' (store) {
+
+		store.selectedCustomer = ""
 	}
 }

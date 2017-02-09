@@ -1,19 +1,27 @@
 <script>
 
-import CpTable from './table.vue'
+import CpTitle from '../../../root/components/title.vue'
 
-import CpUploadForm from './upload-form.vue'
+ import CpTable from './table.vue'
+
+ import CpUploadForm from './upload-form.vue'
 
 
 export default {
 
 	name: 'Upload',
 
+	data () {
+
+		return {
+
+			loading: true
+		}
+	},
+
 	components: {
 
-		CpTable,
-
-		CpUploadForm
+		CpTitle, CpTable, CpUploadForm
 
 	},
 
@@ -35,28 +43,15 @@ export default {
 
 <template>
 
-	<div class="container">
+	<div class="flex-container">
 
-		<div class="jumbotron">
+		<cp-title title="Gerar Versão" subTitle="Clique em Gerar Versão no campo do cliente selecionado para subir uma nova versão"/>
 
-			<h1 class="display-3">Upload</h1>
+		<cp-table title1="Código" title2="Razão" title3="Fantasia" title4="CPF/CNPJ" title5="Ultima Versão" title6="Gerar Versão"/>
 
-			<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-
-			<hr class="my-4">
-
-		</div>
-
-		<!-- <div class="tab-content">
-
-			<cp-table title1="Código" title2="Razão" title3="Fantasia" title4="CPF/CNPJ" title5="Gerar Versão" v-on:EVENT-SET-UPLOAD="eventSetUpload"/>
-
-			<hr class="my-4">
-
-		</div>
-
-		<cp-upload-form :list="eventSetUpload"/> -->
+		<cp-upload-form/>
 
 	</div>
+
 
 </template>

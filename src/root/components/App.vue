@@ -36,8 +36,6 @@
 
 		<cp-menu />
 
-		<router-view></router-view>
-
 	</div>
 
 </template>
@@ -121,6 +119,7 @@ header h1 {
 	display: flex;
 	width: 100%;
 	flex: 1 0 auto;
+	height: 800px;
 }
 
 nav {
@@ -464,9 +463,11 @@ footer {
 }
 
 .menu-toggle {
+
 	position: relative;
 	float: left;
 	background-color: #2b6ca2;
+	width: 100%;
 
 }
 
@@ -519,15 +520,15 @@ footer {
 		display: block;
 		float: left;
 		border-radius: 0;
-	-moz-border-radius: 0;
-	-webkit-border-radius:0;
+		-moz-border-radius: 0;
+		-webkit-border-radius:0;
 	}
 
 	.status-bar h1{
 		border-radius: 0px;
-	-moz-border-radius: 0px;
-	-webkit-border-radius:0px;
-	margin: 0 auto;
+		-moz-border-radius: 0px;
+		-webkit-border-radius:0px;
+		margin: 0 auto;
 	}
 
 	.status-bar h2{
