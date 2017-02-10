@@ -31,7 +31,7 @@ export default {
 
 			<div class="text-user">Usuário:</div>
 
-			<div class="user">José Moreno</div>
+			<div class="user">Suporte</div>
 
 			<div id="button-config">
 

@@ -12,7 +12,7 @@
 
 	<div class="box-mensagem">
 		<div class="mensagem">
-			<div class="texto-mensagem">Versão <span class="versao-mensagem"></span> foi criada com sucesso!</div>
+			<div class="texto-mensagem">Erro <span class="versao-mensagem"></span> ao gerar versão !</div>
 			<img class="icone-m" src="src/assets/img/erro.svg">
 		</div>
 	</div>

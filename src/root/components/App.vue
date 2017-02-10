@@ -34,6 +34,8 @@
 
 		<cp-menu />
 
+		<footer>Copyright © Breda's Sistemas</footer>
+
 	</div>
 
 </template>

@@ -30,17 +30,14 @@
 
 				<ul>
 
-					<router-link :to="{ name: 'customer.main' }" tag="li" exact>
+					<a>
+						<router-link :to="{ name: 'customer.main' }" exact>Clientes</router-link>
+					</a>
 
-						<a> Clientes </a>
+					<a>
+						<router-link :to="{ name: 'upload.main' }" tag="li">Gerar Versão</router-link>
+					</a>
 
-					</router-link>
-
-					<router-link :to="{ name: 'upload.main' }" tag="li">
-
-						<a> Gerar Versão </a>
-
-					</router-link>
 
 					<li><a href="#">Histórico de Atualização</a></li>
 
@@ -58,19 +55,15 @@
 
 				<ul id="nav1">
 
-					<router-link :to="{ name: 'customer.main' }" tag="li"  id="a" exact>
+					<a>
+						<router-link :to="{ name: 'customer.main' }" tag="li"  exact>Clientes</router-link>
+					</a>
 
-						<a> Clientes </a>
+					<a>
+						<router-link :to="{ name: 'upload.main' }" tag="li" >Gerar Versão</router-link>
+					</a>
 
-					</router-link>
-
-					<router-link :to="{ name: 'upload.main' }" tag="li" id="b">
-
-						<a> Gerar Versão </a>
-
-					</router-link>
-
-					<li id="c" class="c">Histórico de Atualização</li>
+					<li  class="c">Histórico de Atualização</li>
 
 				</ul>
 
@@ -94,6 +87,7 @@
 	}
 
 	a {
+			text-decoration: none;
 
 		color: #fff;
 

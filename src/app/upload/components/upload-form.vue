@@ -49,7 +49,6 @@
 			}),
 
 
-
 			isValid () {
 
 				return this.selectedCustomer.Id !== "" && this.versao != ""
@@ -63,7 +62,7 @@
 
 		methods: {
 
-			...mapActions(['uploadFile', 'clearCustomerSelected']),
+			...mapActions(['uploadFile', 'clearCustomerSelected', 'getCustomers']),
 
 			onFileChange (e) {
 
@@ -83,15 +82,15 @@
 
 				self = this
 
-				self.loading = true;
-
+				self.loading = true
 				self.message.success = false
-
 				self.message.error = false
 
 				self.uploadFile(self.file)
 
 				.then(function (response) {
+
+					self.getCustomers()
 
 					self.loading = false
 
@@ -193,7 +192,7 @@
 							<label for="" class="tituloForm">Upload</label>
 							<div class="boxInput">
 
-								<input type="file" id="file" @change="onFileChange" class="form-control-file" :disabled="!isValid">
+								<label class="btn-file"><input type="file" id="file" @change="onFileChange" class="form-control-file" :disabled="!isValid"></label>
 
 							</div>
 						</div>

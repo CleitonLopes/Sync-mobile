@@ -25,18 +25,6 @@ export default {
 
 	},
 
-
-	methods: {
-
-		eventSetUpload(item) {
-
-			return item
-
-		}
-
-	}
-
-
 }
 
 </script>

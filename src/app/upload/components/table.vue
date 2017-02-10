@@ -121,7 +121,7 @@
 						<td>{{ item.RazaoSocial }}</td>
 						<td>{{ item.NomeFantasia }}</td>
 						<td>{{ item.CpfCnpj }}</td>
-						<td>{{ item.UltimaVersao }}</td>
+						<td class="texto-versao">{{ item.UltimaVersao }}</td>
 						<td><a @click="selectedCustomer(item)"><img class="upload" src="src/assets/img/upload.svg"></a></td>
 					</tr>
 
