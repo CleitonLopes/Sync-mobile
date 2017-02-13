@@ -36,13 +36,14 @@ export default {
 
 		.then(function(response) {
 
-			console.log(response.data)
+			//console.log(response)
+
 
 		})
 
-		.catch( function(error) {
+		.catch(function(error) {
 
-			console.log(error)
+			//console.log(error)
 
 		})
 	},

@@ -2,8 +2,22 @@
 
 	export default {
 
-		name: 'MessageError'
+		name: 'MessageError',
 
+		props: {
+
+			title: {
+
+				type: String,
+				required: true
+			},
+
+			description: {
+
+				type: String,
+				required: true
+			}
+		}
 	}
 
 </script>
@@ -12,7 +26,7 @@
 
 	<div class="box-mensagem">
 		<div class="mensagem">
-			<div class="texto-mensagem">Erro <span class="versao-mensagem"></span> ao gerar versão !</div>
+			<div class="texto-mensagem"> {{ title }} <span class="versao-mensagem"></span> {{ description }} </div>
 			<img class="icone-m" src="src/assets/img/erro.svg">
 		</div>
 	</div>

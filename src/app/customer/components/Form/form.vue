@@ -1,10 +1,20 @@
 <script>
 
+import CpMessageSuccess from '../../../../root/components/message-success.vue'
+
+import CpMessageError from '../../../../root/components/message-error.vue'
+
 import { mapActions } from 'vuex'
 
 export default {
 
 	nmae: "Form",
+
+	components: {
+
+		CpMessageSuccess, CpMessageError
+
+	},
 
 	data () {
 
@@ -12,18 +22,25 @@ export default {
 
 			customer: {
 
-				razaosocial: '',
-				nomefantasia: '',
+				razaosocial: null,
+				nomefantasia: null,
 				situacao: 'true',
 				fisicajuridica: 'F',
-				cpfcnpj: '',
-				cep: '',
-				logradouro: '',
-				endereco: '',
-				numero: '',
-				bairro: '',
-				complemento: '',
-				codigointegracao: ''
+				cpfcnpj: null,
+				cep: null,
+				logradouro: null,
+				endereco: null,
+				numero: null,
+				bairro: null,
+				complemento: null,
+				codigointegracao: null
+			},
+
+			message: {
+
+				success: false,
+				error: false
+
 			}
 		}
 	},
@@ -32,12 +49,15 @@ export default {
 
 		isValid() {
 
-			return this.customer.razaosocial != '' && this.customer.fantasia != '' &&
-					this.customer.situacao != '' && this.customer.fisicajuridica != '' &&
-					this.customer.cpfcnpj != '' &&
-					this.customer.cep != '' && this.customer.logradouro != '' &&
-					this.endereco != '' && this.customer.numero != '' &&
-					this.numero != '' && this.customer.bairro != ''
+			return  this.customer.razaosocial != '' && this.customer.razaosocial != null &&
+					this.customer.situacao != '' && this.customer.situacao != null &&
+					this.customer.fisicajuridica != '' && this.customer.fisicajuridica != null &&
+					this.customer.cpfcnpj != '' && this.customer.cpfcnpj != null &&
+					this.customer.cep != '' && this.customer.cep != null &&
+					this.customer.logradouro != '' && this.customer.logradouro != null &&
+					this.customer.endereco != '' && this.customer.endereco != null &&
+					this.customer.numero != '' && this.customer.numero != null &&
+					this.customer.bairro != '' && this.customer.bairro != null
 		}
 	},
 
@@ -47,7 +67,30 @@ export default {
 
 		saveCustomer() {
 
+			self = this
+
+			self.message.success = false
+			self.message.error = false
+
 			this.save(this.customer)
+
+			.then(function (response) {
+
+				console.log('foi')
+
+
+				self.message.success = true
+			})
+
+			.catch(function (error) {
+
+			console.log('erro')
+
+
+				self.message.error = true
+
+				console.log(error)
+			})
 
 		}
 
@@ -58,6 +101,21 @@ export default {
 </script>
 
 <template>
+
+	<div>
+
+	<div v-show="message.success">
+
+		<cp-message-success title="Cliente" description=" cadastrado com sucesso !"/>
+
+	</div>
+
+	<div v-show="message.error">
+
+		<cp-message-error title="Erro" description=" ao cadastrar cliente !"/>
+
+	</div>
+
 
 	<div class="content-container">
 
@@ -115,12 +173,12 @@ export default {
 
 							<div class="form-check">
 								<label class="tituloForm">
-									<input type="radio" class="form-check-input" v-model="customer.situacao" name="optSituacao1" id="optSituacao1" value="true">
+									<input type="radio" class="form-check-input" v-model="customer.situacao" value="true">
 									Ativo
 								</label>
 
 								<label class="tituloForm">
-									<input type="radio" class="form-check-input" v-model="customer.situacao" name="optSituacao2" id="optSituacao2" value="false">
+									<input type="radio" class="form-check-input" v-model="customer.situacao" value="false">
 									Inativo
 								</label>
 
@@ -178,12 +236,14 @@ export default {
 
 				</div>
 
-				<button :disabled="!isValid" type="submit" @click="saveCustomer()" class="btn btn-primary">Cadastrar</button>
+				<button :disabled="!isValid" @click.stop.prevent="saveCustomer()" class="btn btn-primary">Cadastrar</button>
 
 			</form>
 
 		</div>
 	</div>
+
+</div>
 
 
 </template>

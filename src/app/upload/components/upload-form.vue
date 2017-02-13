@@ -144,13 +144,13 @@
 
 		<div v-show="message.success" id="message">
 
-			<cp-message-success />
+			<cp-message-success title="Versão" description=" gerada com sucesso !"/>
 
 		</div>
 
 		<div v-show="message.error" id="message">
 
-			<cp-message-error />
+			<cp-message-error title="Erro" description=" ao gerar versão !"/>
 
 		</div>
 
@@ -201,7 +201,7 @@
 
 					</div>
 
-					<button type="submit" class="btn btn-primary" @click="upload()" :disabled="!isFileEmpty">Gerar</button>
+					<button type="submit" class="btn btn-primary" @click.stop.prevent="upload()" :disabled="!isFileEmpty">Gerar</button>
 
 				</form>
 

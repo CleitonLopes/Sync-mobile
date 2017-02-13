@@ -37,7 +37,7 @@ export default {
 
 				<div class="icon-config">
 
-					<a id="button" href="#"><img src="src/assets/img/config.svg"></a>
+					<a><img src="src/assets/img/config.svg"></a>
 
 				</div>
 
@@ -64,3 +64,7 @@ export default {
 	</header>
 
 </template>
+
+<style>
+
+</style>

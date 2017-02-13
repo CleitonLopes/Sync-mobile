@@ -2,7 +2,22 @@
 
 	export default {
 
-		name: 'MessageSuccess'
+		name: 'MessageSuccess',
+
+		props: {
+
+			title: {
+
+				type: String,
+				required: true
+			},
+
+			description: {
+
+				type: String,
+				required: true
+			}
+		}
 
 	}
 
@@ -12,7 +27,7 @@
 
 	<div class="box-mensagem">
 		<div class="mensagem">
-			<div class="texto-mensagem">Versão <span class="versao-mensagem"></span> foi criada com sucesso!</div>
+			<div class="texto-mensagem">{{title}} <span class="versao-mensagem"></span> {{ description }} </div>
 			<img class="icone-m" src="src/assets/img/correto.svg">
 		</div>
 	</div>

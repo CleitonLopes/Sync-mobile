@@ -1,17 +1,8 @@
 <script>
 
-   import CpCustomer from '../../app/customer/components/customer.vue'
-
-   import CpUpload from '../../app/upload/components/upload.vue'
-
 	export default {
 
-		name: 'Menu',
-
-		components: {
-
-			CpCustomer, CpUpload
-		}
+		name: 'Menu'
 
 	}
 
@@ -20,7 +11,7 @@
 
 <template>
 
-	<div>
+	<div class="render">
 
 		<div class="menu-toggle">
 
@@ -31,7 +22,7 @@
 				<ul>
 
 					<a>
-						<router-link :to="{ name: 'customer.main' }" exact>Clientes</router-link>
+						<router-link :to="{ name: 'customer.main' }" tag="li" exact>Clientes</router-link>
 					</a>
 
 					<a>
@@ -63,7 +54,7 @@
 						<router-link :to="{ name: 'upload.main' }" tag="li" >Gerar Versão</router-link>
 					</a>
 
-					<li  class="c">Histórico de Atualização</li>
+					<li>Histórico de Atualização</li>
 
 				</ul>
 
