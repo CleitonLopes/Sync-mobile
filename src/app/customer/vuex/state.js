@@ -2,5 +2,7 @@ export default {
 
 	customers: {},
 
-	selectedCustomer: {}
+	selectedCustomer: {},
+
+	errors: [],
 }

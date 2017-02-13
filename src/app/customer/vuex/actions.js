@@ -32,18 +32,23 @@ export default {
 	save(store, data) {
 
 
-		http.post('http://www.bredasweb.com.br:8080/syncmobile/api/cliente', data)
+		return http.post('http://www.bredasweb.com.br:8080/syncmobile/api/cliente', data)
 
-		.then(function(response) {
+		.then((response) => {
 
-			//console.log(response)
+			if(response.data.status < 300) {
 
+				response.data.status
+
+				//store.commit('SET_RESULT_POST_CUSTOMER', response.data)
+			}
 
 		})
 
-		.catch(function(error) {
+		.catch((error) => {
 
-			//console.log(error)
+			rerror.response
+			//store.commit('SET_RESULT_POST_CUSTOMER', error.response)
 
 		})
 	},
@@ -52,5 +57,6 @@ export default {
 
 		store.commit('CLEAR_CUSTOMERS_SELECTED')
 
-	}
+	},
+
 }

@@ -4,7 +4,7 @@ import CpMessageSuccess from '../../../../root/components/message-success.vue'
 
 import CpMessageError from '../../../../root/components/message-error.vue'
 
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
 
@@ -67,29 +67,23 @@ export default {
 
 		saveCustomer() {
 
-			self = this
+			self = this;
 
-			self.message.success = false
+			self.message.success= false
 			self.message.error = false
 
 			this.save(this.customer)
 
-			.then(function (response) {
+			.then((response) => {
 
-				console.log('foi')
+				console.log(response)
 
-
-				self.message.success = true
 			})
 
-			.catch(function (error) {
-
-			console.log('erro')
-
-
-				self.message.error = true
+			.catch((error) => {
 
 				console.log(error)
+
 			})
 
 		}
