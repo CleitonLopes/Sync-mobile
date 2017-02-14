@@ -45,7 +45,7 @@
 
 </template>
 
-<style scoped>
+<style>
 
 	a:link, a:active {
 

@@ -6,6 +6,8 @@ import router from './router'
 
 import store from './vuex'
 
+import 'jquery/dist/jquery.js'
+
 
 new Vue({
 

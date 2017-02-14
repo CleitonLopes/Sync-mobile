@@ -12,6 +12,7 @@ body {
     border: 0;
     height: 100%;
     background-color: #d1d8de ;
+    min-width: 880px;
 }
 
 
@@ -78,6 +79,7 @@ header h1 {
 	display: -webkit-flex;
 	display: flex;
 	height: 100%;
+	width: 100%;
 }
 
 .main {
@@ -458,6 +460,7 @@ footer {
 .menu-toggle {
 	display: none;
 }
+}
 
 
 @media (max-width: 1000px) {
@@ -477,6 +480,7 @@ footer {
 
 	.box-header {
 		display: none;
+		background-color: red;
 	}
 
 	.status-bar {
