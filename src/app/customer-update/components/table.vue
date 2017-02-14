@@ -2,6 +2,8 @@
 
 	import { mapState, mapActions } from 'vuex'
 
+	import CpTableEmployee from './table-employee.vue'
+
 	export default {
 
 		name: 'Table-Customer-Update',
@@ -41,15 +43,22 @@
 
 				configs: {
 
-					orderBy: 'Id'
+					orderBy: 'DataInclusao'
 				}
 
 			}
 		},
 
+		components: {
+
+			CpTableEmployee
+		},
+
+
 		methods: {
 
-			...mapActions(['getCustomers'])
+			...mapActions(['getCustomers', 'selectedUpload']),
+
 		},
 
 		computed: {
@@ -81,6 +90,7 @@
 
 <template>
 
+	<div>
 
 	<div class="content-container">
 
@@ -104,10 +114,10 @@
 				<tbody>
 
 					<tr v-for="item in list">
-						<td>{{ item.Id }}</td>
-						<td>{{ item.RazaoSocial }}</td>
-						<td>{{ item.NomeFantasia }}</td>
-						<td>{{ item.CpfCnpj }}</td>
+						<td  @click="selectedUpload(item.CpfCnpj)">{{ item.Id }}</td>
+						<td  @click="selectedUpload(item.CpfCnpj)">{{ item.RazaoSocial }}</td>
+						<td  @click="selectedUpload(item.CpfCnpj)">{{ item.NomeFantasia }}</td>
+						<td  @click="selectedUpload(item.CpfCnpj)">{{ item.CpfCnpj }}</td>
 					</tr>
 
 				</tbody>
@@ -115,6 +125,10 @@
 			</table>
 
 		</div>
+	</div>
+
+	<cp-table-employee v-show="list" title1="Data" title2="Código do Vendedor" title3="Versão" />
+
 	</div>
 
 
