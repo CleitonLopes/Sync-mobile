@@ -102,7 +102,7 @@ export default {
 
 	<div v-show="getMessage.error">
 
-		<cp-message-error title="Erro" :description="getErrors"/>
+		<cp-message-error title="Falha ao gravar cliente," :description="getErrors"/>
 
 	</div>
 
@@ -230,7 +230,7 @@ export default {
 
 				</div>
 
-				<button @click.stop.prevent="saveCustomer()" class="btn btn-primary">Cadastrar</button>
+				<button :disabled="isValid" @click.stop.prevent="saveCustomer()" class="btn btn-primary">Cadastrar</button>
 
 			</form>
 

@@ -1,6 +1,6 @@
 <script>
 
-import CpTitle from '../../../root/components/title.vue'
+ import CpTitle from '../../../root/components/title.vue'
 
  import CpTable from './table.vue'
 

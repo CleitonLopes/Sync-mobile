@@ -4,43 +4,33 @@
 
 	export default {
 
-		name: 'Table-Upload',
+		name: 'Table-Customer-Update',
 
 		props: {
 
 			title1: {
 
-				type:String,
+				type: String,
 				required: true
 
 			},
 			title2: {
 
-				type:String,
+				type: String,
 				required: true
 
 			},
 			title3: {
 
-				type:String,
+				type: String,
 				required: true
 
 			},
 			title4: {
 
-				type:String,
+				type: String,
 				required: true
 
-			},
-			title5: {
-
-				type:String,
-				required: true
-			},
-			title6: {
-
-				type:String,
-				required: true
 			}
 
 		},
@@ -53,13 +43,13 @@
 
 					orderBy: 'Id'
 				}
+
 			}
 		},
 
 		methods: {
 
-			...mapActions(['getCustomers', 'selectedCustomer'])
-
+			...mapActions(['getCustomers'])
 		},
 
 		computed: {
@@ -80,10 +70,9 @@
 
 		},
 
-		mounted () {
+		mounted() {
 
 			this.getCustomers()
-
 		}
 
 	}
@@ -97,30 +86,28 @@
 
 		<div class="content-table">
 
-			<table class="table table-bordered table-hover texto-table">
+			<table class="table table-bordered texto-table table-striped" id="mytable">
 
-				<thead class="thead-default">
+			<thead class="thead-default">
 
-					<tr>
-						<th>{{ title1 }}</th>
-						<th>{{ title2 }}</th>
-						<th>{{ title3 }}</th>
-						<th>{{ title4 }}</th>
-						<th>{{ title5 }}</th>
-						<th class="text-center">{{ title6 }}</th>
-					</tr>
+				<tr>
+
+					<th>{{ title1 }}</th>
+					<th>{{ title2 }}</th>
+					<th>{{ title3 }}</th>
+					<th>{{ title4 }}</th>
+
+				</tr>
 
 				</thead>
 
 				<tbody>
 
-					<tr v-for="item in list ">
+					<tr v-for="item in list">
 						<td>{{ item.Id }}</td>
 						<td>{{ item.RazaoSocial }}</td>
 						<td>{{ item.NomeFantasia }}</td>
 						<td>{{ item.CpfCnpj }}</td>
-						<td class="texto-versao">{{ item.UltimaVersao }}</td>
-						<td><a @click="selectedCustomer(item)"><img class="upload" src="src/assets/img/upload.svg"></a></td>
 					</tr>
 
 				</tbody>
@@ -128,7 +115,12 @@
 			</table>
 
 		</div>
-
 	</div>
 
+
 </template>
+
+<style>
+
+
+</style>

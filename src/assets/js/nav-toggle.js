@@ -38,40 +38,36 @@ function toggleClass(elem, className) {
     }
 }
 
-window.onload = function() {
 
-    theToggle.onclick = function() {
 
-        toggleClass(this, 'on');
+theToggle.onclick = function() {
 
-        return false;
+    toggleClass(this, 'on');
 
-    }
+    return false;
+
 }
 
 
-window.onload = function() {
 
-    document.getElementById('menu').onclick = function() {
+document.getElementById('menu').onclick = function() {
 
-     removeClass(theToggle, 'on');
+ removeClass(theToggle, 'on');
 
  }
-}
 
 
 
-window.onload = function() {
 
-    boxConfig.onclick = function() {
+boxConfig.onclick = function() {
 
-        toggleClass(document.getElementById('box-config'), 'active2');
+    toggleClass(document.getElementById('box-config'), 'active2');
 
-        return false;
-
-    }
+    return false;
 
 }
+
+
 
 
 window.onresize = function(event) {

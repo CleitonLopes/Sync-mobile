@@ -11,34 +11,8 @@
 
 <template>
 
+
 	<div class="render">
-
-		<div class="menu-toggle">
-
-			<a class="button-toggle" href="#menu" id="toggle"><span></span></a>
-
-			<div id="menu">
-
-				<ul>
-
-					<a>
-						<router-link :to="{ name: 'customer.main' }" tag="li" exact>Clientes</router-link>
-					</a>
-
-					<a>
-						<router-link :to="{ name: 'upload.main' }" tag="li">Gerar Versão</router-link>
-					</a>
-
-
-					<li><a href="#">Histórico de Atualização</a></li>
-
-					<li><a href="#">Sair</a></li>
-
-				</ul>
-
-			</div>
-
-		</div>
 
 		<div class="main">
 
@@ -47,14 +21,16 @@
 				<ul id="nav1">
 
 					<a>
-						<router-link :to="{ name: 'customer.main' }" tag="li"  exact>Clientes</router-link>
+						<router-link :to="{ name: 'customer.main' }" tag="li"  exact> Clientes </router-link>
 					</a>
 
 					<a>
-						<router-link :to="{ name: 'upload.main' }" tag="li" >Gerar Versão</router-link>
+						<router-link :to="{ name: 'upload.main' }" tag="li" > Gerar Versão </router-link>
 					</a>
 
-					<li>Histórico de Atualização</li>
+					<a>
+						<router-link :to="{ name: 'customerUpdate.main' }" tag="li" > Histórico de Atualização </router-link>
+					</a>
 
 				</ul>
 
@@ -65,7 +41,6 @@
 		</div>
 
 	</div>
-
 
 
 </template>

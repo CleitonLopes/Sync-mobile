@@ -32,7 +32,7 @@
 
 			<cp-header />
 
-			<cp-menu></cp-menu>
+			<cp-menu />
 
 			<footer>Copyright © Breda's Sistemas</footer>
 

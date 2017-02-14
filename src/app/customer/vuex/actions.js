@@ -1,13 +1,15 @@
-//import http from '../../../http'
+import http from '../../../http'
 
 import { saveCustomer } from '../services'
+
+import { getCustomers } from '../services'
 
 export default {
 
 
 	getCustomers(store) {
 
-		return http.get('http://www.bredasweb.com.br:8080/syncmobile/api/cliente')
+		return getCustomers()
 
 		.then(response => response.data)
 
@@ -34,8 +36,6 @@ export default {
 	save(store, data) {
 
 
-		//return http.post('http://www.bredasweb.com.br:8080/syncmobile/api/cliente', data)
-
 		store.commit('SET_MESSAGE_SUCCESS', false)
 		store.commit('SET_MESSAGE_ERROR', false)
 
@@ -53,7 +53,7 @@ export default {
 
 		.catch((error) => {
 
-			const erro = 'cpf invalido'
+			const erro = error.response.data.Errors[0].ErrorMessage
 
 			store.commit('SET_MESSAGE_ERROR', true)
 

@@ -2,13 +2,17 @@
 
 import CpLogoHeader from './logo.vue'
 
+import CpMenu from './menu.vue'
+
+
+
 export default {
 
 	name: 'Header-Principal',
 
 	components: {
 
-		CpLogoHeader
+		CpLogoHeader, CpMenu
 	}
 
 }
@@ -60,6 +64,37 @@ export default {
 			</div>
 
 		</div>
+
+
+		<div class="menu-toggle">
+
+			<a class="button-toggle" href="#" id="toggle"><span></span></a>
+
+			<div id="menu">
+
+				<ul>
+
+					<a>
+						<router-link :to="{ name: 'customer.main' }" tag="li" exact> <a> Clientes </a> </router-link>
+					</a>
+
+					<a>
+						<router-link :to="{ name: 'upload.main' }" tag="li" > <a> Gerar Versão </a> </router-link>
+					</a>
+
+					<a>
+						<router-link :to="{ name: 'customerUpdate.main' }" tag="li" > <a> Histórico de Atualização </a> </router-link>
+					</a>
+
+					<li><a href="#">Sair</a></li>
+
+				</ul>
+
+			</div>
+
+		</div>
+
+
 
 	</header>
 
