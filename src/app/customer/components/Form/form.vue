@@ -6,6 +6,8 @@ import CpMessageError from '../../../../root/components/message-error.vue'
 
 import { mapActions, mapState } from 'vuex'
 
+
+
 export default {
 
 	nmae: "Form",
@@ -22,70 +24,64 @@ export default {
 
 			customer: {
 
-				razaosocial: null,
-				nomefantasia: null,
+				razaosocial: '',
+				nomefantasia: '',
 				situacao: 'true',
 				fisicajuridica: 'F',
-				cpfcnpj: null,
-				cep: null,
-				logradouro: null,
-				endereco: null,
-				numero: null,
-				bairro: null,
-				complemento: null,
-				codigointegracao: null
-			},
-
-			message: {
-
-				success: false,
-				error: false
-
+				cpfcnpj: '',
+				cep: '',
+				logradouro: '',
+				endereco: '',
+				numero: '',
+				bairro: '',
+				complemento: '',
+				codigointegracao: ''
 			}
 		}
 	},
 
 	computed: {
 
+		...mapState({
+
+			getErrors: getters => {
+
+				return getters.customer.errors
+
+			},
+
+			getMessage : getters => {
+
+				return getters.customer.message
+			}
+
+		}),
+
 		isValid() {
 
-			return  this.customer.razaosocial != '' && this.customer.razaosocial != null &&
-					this.customer.situacao != '' && this.customer.situacao != null &&
-					this.customer.fisicajuridica != '' && this.customer.fisicajuridica != null &&
-					this.customer.cpfcnpj != '' && this.customer.cpfcnpj != null &&
-					this.customer.cep != '' && this.customer.cep != null &&
-					this.customer.logradouro != '' && this.customer.logradouro != null &&
-					this.customer.endereco != '' && this.customer.endereco != null &&
-					this.customer.numero != '' && this.customer.numero != null &&
-					this.customer.bairro != '' && this.customer.bairro != null
+			const customer = this.customer
+
+			 return _.isEmpty (
+
+	 			customer.razaosocial && customer.situacao && customer.fisicajuridica &&
+	 			customer.cpfcnpj && customer.cep && customer.logradouro && customer.endereco &&
+	 			customer.numero && customer.bairro
+
+			 )
 		}
 	},
 
 	methods: {
 
-		...mapActions(['save']),
+		...mapActions(['save', 'setErrors']),
 
+		/*
+		* Chama método na action save()
+		* retorna true ou false para apresentar a mensagem na tela
+		*/
 		saveCustomer() {
 
-			self = this;
-
-			self.message.success= false
-			self.message.error = false
-
 			this.save(this.customer)
-
-			.then((response) => {
-
-				console.log(response)
-
-			})
-
-			.catch((error) => {
-
-				console.log(error)
-
-			})
-
 		}
 
 	}
@@ -98,15 +94,15 @@ export default {
 
 	<div>
 
-	<div v-show="message.success">
+	<div v-show="getMessage.success">
 
 		<cp-message-success title="Cliente" description=" cadastrado com sucesso !"/>
 
 	</div>
 
-	<div v-show="message.error">
+	<div v-show="getMessage.error">
 
-		<cp-message-error title="Erro" description=" ao cadastrar cliente !"/>
+		<cp-message-error title="Erro" :description="getErrors"/>
 
 	</div>
 
@@ -148,17 +144,21 @@ export default {
 						</div>
 					</div>
 
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
-						<label  class="tituloForm">CPF/CNPJ</label>
+					<div v-if="customer.fisicajuridica == 'F'" class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+						<label  class="tituloForm">CPF</label>
 
-						<div v-if="customer.fisicajuridica == 'F'" class="boxInput">
-							<input type="text" v-model="customer.cpfcnpj" class="form-control" maxlength="11">
+						<div class="boxInput">
+							<input type="text" v-model="customer.cpfcnpj" class="form-control" minlength="11" maxlength="11" required>
 						</div>
 
-						<div v-else class="boxInput">
-							<input type="text" v-model="customer.cpfcnpj" class="form-control" maxlength="14">
-						</div>
+					</div>
 
+					<div v-else class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+						<label class="tituloForm">CNPJ</label>
+
+						<div  class="boxInput">
+							<input type="text" v-model="customer.cpfcnpj" class="form-control" minlength="14" maxlength="14" required>
+						</div>
 					</div>
 
 					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-2">
@@ -184,14 +184,14 @@ export default {
 					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
 						<label class="tituloForm">CEP</label>
 						<div class="boxInput">
-							<input type="text" v-model="customer.cep" class="form-control">
+							<input type="text" v-model="customer.cep" class="form-control" maxlength="8">
 						</div>
 					</div>
 
 					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 						<label  class="tituloForm">Logradouro</label>
 						<div class="boxInput">
-							<input type="text" v-model="customer.logradouro" class="form-control">
+							<input type="text" v-model="customer.logradouro" class="form-control" placeholder="av / rua / rodovia">
 						</div>
 					</div>
 
@@ -230,7 +230,7 @@ export default {
 
 				</div>
 
-				<button :disabled="!isValid" @click.stop.prevent="saveCustomer()" class="btn btn-primary">Cadastrar</button>
+				<button @click.stop.prevent="saveCustomer()" class="btn btn-primary">Cadastrar</button>
 
 			</form>
 

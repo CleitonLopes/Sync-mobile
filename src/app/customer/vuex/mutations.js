@@ -16,17 +16,19 @@ export default {
 		store.selectedCustomer = ""
 	},
 
-	'SET_RESULT_POST_CUSTOMER' (store, data) {
+	'SET_MESSAGE_SUCCESS' (store, data) {
 
-		if(data.status < 300) {
-
-			//store.message.success = true
-
-		} else {
-
-			store.errors.push(data.Errors)
-
-		}
+		store.message.success = data
 	},
+
+	'SET_MESSAGE_ERROR' (store, data) {
+
+		store.message.error = data
+	},
+
+	'SET_ERRORS' (store, data) {
+
+		store.errors = data
+	}
 
 }

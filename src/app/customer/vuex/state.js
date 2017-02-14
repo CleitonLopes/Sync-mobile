@@ -4,5 +4,11 @@ export default {
 
 	selectedCustomer: {},
 
-	errors: [],
+	errors: '',
+
+	message: {
+
+		success: false,
+		error: false
+	}
 }

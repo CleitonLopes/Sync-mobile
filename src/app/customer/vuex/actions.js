@@ -1,4 +1,6 @@
-import http from '../../../http.js'
+//import http from '../../../http'
+
+import { saveCustomer } from '../services'
 
 export default {
 
@@ -32,31 +34,38 @@ export default {
 	save(store, data) {
 
 
-		return http.post('http://www.bredasweb.com.br:8080/syncmobile/api/cliente', data)
+		//return http.post('http://www.bredasweb.com.br:8080/syncmobile/api/cliente', data)
+
+		store.commit('SET_MESSAGE_SUCCESS', false)
+		store.commit('SET_MESSAGE_ERROR', false)
+
+		return saveCustomer(data)
 
 		.then((response) => {
 
-			if(response.data.status < 300) {
+			if(response.status < 300) {
 
-				response.data.status
+				store.commit('SET_MESSAGE_SUCCESS', true)
 
-				//store.commit('SET_RESULT_POST_CUSTOMER', response.data)
 			}
 
 		})
 
 		.catch((error) => {
 
-			rerror.response
-			//store.commit('SET_RESULT_POST_CUSTOMER', error.response)
+			const erro = 'cpf invalido'
+
+			store.commit('SET_MESSAGE_ERROR', true)
+
+			store.commit('SET_ERRORS', erro)
 
 		})
+
 	},
 
 	clearCustomerSelected(store) {
 
 		store.commit('CLEAR_CUSTOMERS_SELECTED')
 
-	},
-
+	}
 }
