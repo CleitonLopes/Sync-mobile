@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # atualiza
 
 > A Vue.js project
@@ -16,3 +17,6 @@ npm run build
 ```
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+=======
+initial project
+>>>>>>> f15ddfcad715004a759a6bad6213f1ea25a16ebd
