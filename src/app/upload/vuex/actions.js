@@ -16,6 +16,12 @@ export default {
 			console.log(error)
 
 		})
+	},
+
+	setError(store, data) {
+
+		store.commit('SET_ERROR', data)
+
 	}
 
 }

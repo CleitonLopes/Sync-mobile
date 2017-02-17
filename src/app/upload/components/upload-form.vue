@@ -44,8 +44,14 @@
 
 					selectedCustomer: getters => {
 
-						return getters.customer.selectedCustomer
+					return getters.customer.selectedCustomer
+				},
+
+					getError: getters => {
+
+						return getters.upload.error
 				}
+
 			}),
 
 
@@ -54,27 +60,66 @@
 				return this.selectedCustomer.Id !== "" && this.versao != ""
 			},
 
-			isFileEmpty() {
+			isFileOrErrorEmpty() {
 
-				return this.file !== ""
+				return this.file !== "" && this.getError === ""
+			},
+
+			verifyCpfOrCnpj() {
+
+				const size = this.selectedCustomer.CpfCnpj
+
+				if(size.length > 11) {
+
+					return 14
+
+				} else {
+
+					return 11
+
+				}
 			}
 		},
 
 		methods: {
 
-			...mapActions(['uploadFile', 'clearCustomerSelected', 'getCustomers']),
+			...mapActions(['uploadFile', 'clearCustomerSelected', 'getCustomers', 'setError']),
+
+			versionCnpjValid(cpfcnpj, extensao) {
+
+				return this.selectedCustomer.CpfCnpj === cpfcnpj && extensao === 'apk'
+
+			},
 
 			onFileChange (e) {
 
-				let data = e.target.files[0]
+				const data = e.target.files[0]
 
-				const formData = new FormData()
+				const size = this.verifyCpfOrCnpj
 
-				formData.append('arquivo', data)
-				formData.append('cliente_id', this.selectedCustomer.Id)
-				formData.append('versao', this.versao)
+				const cpfcnpj = data.name.substring(0,size)
 
-				this.file = formData;
+				const extensao = data.name.substring(data.name.length-3)
+
+				if(this.versionCnpjValid(cpfcnpj, extensao)) {
+
+					this.setError('')
+
+					const formData = new FormData()
+
+					formData.append('arquivo', data)
+					formData.append('cliente_id', this.selectedCustomer.Id)
+					formData.append('versao', this.versao)
+
+					this.file = formData;
+
+				} else {
+
+					self.message.success = false
+
+					this.setError('Cpf/Cnpj ou Extensão diferente da empresa escolida, verifique e tente novamente !')
+
+				}
 
 			},
 
@@ -148,11 +193,18 @@
 
 		</div>
 
-		<div v-show="message.error" id="message">
+		<div v-if="message.error" id="message">
 
 			<cp-message-error title="Erro" description=" ao gerar versão !"/>
 
 		</div>
+
+		<div v-else-if="getError">
+
+			<cp-message-error title="Erro" :description="getError"/>
+
+		</div>
+
 
 
 
@@ -201,7 +253,7 @@
 
 					</div>
 
-					<button type="submit" class="btn btn-primary" @click.stop.prevent="upload()" :disabled="!isFileEmpty">Gerar</button>
+					<button type="submit" class="btn btn-primary" @click.stop.prevent="upload()" :disabled="!isFileOrErrorEmpty">Gerar</button>
 
 				</form>
 
